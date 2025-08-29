@@ -1,0 +1,35 @@
+
+let x = 5
+let y = 10
+print(x)
+print(y)
+
+
+x = x + y
+print(x)
+
+
+if (x > 10) {
+    print(1)
+} else {
+    print(0)
+}
+
+
+let flag = true
+if (flag) {
+    print(100)
+} else {
+    print(200)
+}
+
+
+let i = 0
+while (i < 5) {
+    print(i)
+    i = i + 1
+}
+
+
+let z = (x * y) - (i + 2)
+print(z)

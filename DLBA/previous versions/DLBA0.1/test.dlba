@@ -1,0 +1,11 @@
+let x = 3 + 5;
+let y = x * 2;
+print y;
+
+if (x < 10) {
+    print y;
+} else {
+    print x;
+}
+let z=x-y;
+if (z != x) {print(z);} else {print y;print z;}
