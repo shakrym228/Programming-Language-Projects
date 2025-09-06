@@ -1,0 +1,57 @@
+
+let a = 5
+let b = 2.5
+print(a)
+print(b)
+print(a + b)
+print(a / 2)
+print(a * b)
+
+
+let s1 = "Hello"
+let s2 = " DLBA"
+print(s1 + s2)
+print("Value: " + a)
+
+
+let t = True
+let f = False
+print(t)
+print(f)
+print(t && f)
+print(t || f)
+print(!f)
+print(!t)
+
+
+let x = 10
+let y = 3
+print(x > y)
+print(x <= 10)
+print(x == 10)
+print(x != y)
+
+
+if (x < 5) {
+    print("less than 5")
+} elif (x < 15) {
+    print("between 5 and 15")
+} else {
+    print("15 or more")
+}
+
+
+let i = 0
+let sum = 0
+while (i < 4) {
+    sum = sum + i
+    i = i + 1
+}
+print(sum)
+
+
+print("Sum is: " + sum)
+
+
+let v = - (3 + 2)
+print(v)
