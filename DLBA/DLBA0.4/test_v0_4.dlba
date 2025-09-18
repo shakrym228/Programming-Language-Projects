@@ -1,0 +1,91 @@
+// test_v0_4.dlba
+/* Multiline comment:
+   This file tests DLBA v0.4 features:
+   - comments (single-line and multi-line)
+   - numbers: int and float
+   - strings
+   - logical ops and comparisons
+   - if / elif / else
+   - while loops
+   - functions and return
+   - modulus %
+*/
+
+// simple numbers and strings
+let a = 5
+let b = 2.5
+print(a)
+print(b)
+print(a + b)
+print(a / 2)
+print(a * b)
+
+let s1 = "Hello"
+let s2 = " DLBA v0.4"
+print(s1 + s2)
+print("Value: " + a) // implicit conversion in concatenation
+
+// logical and comparisons
+let t = true
+let f = false
+print(t && f)
+print(t || f)
+print(!f)
+print(!t)
+let x = 10 
+let y = 3
+print(x > y)
+print(x <= 10)
+print(x == 10)
+print(x != y)
+
+// if / elif / else
+if (x < 5) {
+    print("less than 5")
+} elif (x == 15) {
+    print("between 5 and 15")
+} else {
+    print("15 or more")
+}
+
+// while and modulus
+let i = 0
+let sum = 0
+while (i <= 7) {
+    sum = sum + i
+    i = i + 1
+}
+print(sum)
+print("sum % 3 = " + (sum % 3))
+
+// function and return
+func add(a, b) {
+    return a + b
+    print("h")
+}
+
+let result = add(10, 20)
+print(result)
+
+print(add(11, 9))
+
+// function with no explicit return -> returns None (printed as None)
+func greet(name) {
+    print("Hello, " + name)
+}
+
+greet("Mahdi")
+
+// nested function + local scope
+func factorial(n) {
+    if (n <= 1) {
+        return 1
+    } else {
+        let sub = factorial(n - 1)
+        return n * sub
+    }
+}
+
+print(factorial(5))
+
+/* End of tests */
