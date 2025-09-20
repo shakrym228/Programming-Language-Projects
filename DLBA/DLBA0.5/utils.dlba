@@ -1,0 +1,14 @@
+/* utils.dlba
+   Module: utilities for testing import & functions
+*/
+
+func inc(x) {
+    return x + 1
+}
+
+func safe_div(a, b) {
+    // will raise in interpreter if b==0, used to test stack trace
+    return a / b
+}
+
+let MODULE_NAME = "utils"

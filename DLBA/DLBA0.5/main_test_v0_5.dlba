@@ -1,0 +1,107 @@
+// main_test_v0_5.dlba
+// Comprehensive test for DLBA v0.5 features
+// Save utils.dlba and math_extra.dlba in the same folder as this file.
+
+import "utils.dlba"     // imports inc, safe_div, MODULE_NAME
+import "math_extra.dlba"
+
+// Single-line comment test
+/* Multi-line comment test:
+   next lines exercise datatypes, arithmetic, strings, booleans, control flow,
+   functions, imports, return, reassignments, and error stack traces.
+*/
+
+// Numbers: int & float
+let a = 5
+let b = 2.5
+print("a =" ); print(a)
+print("b ="); print(b)
+
+// arithmetic and modulus
+let sum = a + b
+let product = a * 3
+let modtest = 10 % 3
+print("sum ="); print(sum)
+print("product ="); print(product)
+print("10 % 3 ="); print(modtest)
+
+// string concat and implicit conversion
+let s1 = "Hello"
+let s2 = " DLBA v0.5"
+print( s1 + s2 )
+print( "sum as string: " + sum )
+
+// booleans and logical operators
+let t = True
+let f = False
+print("t && f ->"); print(t && f)
+print("t || f ->"); print(t || f)
+print("!f ->"); print(!f)
+
+// comparisons and equality
+let x = 10
+let y = 3
+print("x > y ->"); print(x > y)
+print("x <= 10 ->"); print(x <= 10)
+print("x == 10 ->"); print(x == 10)
+print("x != y ->"); print(x != y)
+
+// if / elif / else
+if (x < 5) {
+    print("x < 5")
+} elif (x < 15) {
+    print("5 <= x < 15")
+} else {
+    print("x >= 15")
+}
+
+// while loop and reassignment without let
+let i = 0
+let total = 0
+while (i < 5) {
+    total = total + i
+    i = i + 1
+}
+print("total (0..4) ="); print(total)
+
+// use imported functions
+let inc_result = inc(7)
+print("inc(7) ->"); print(inc_result)
+print("Imported module name:"); print(MODULE_NAME)
+print("PI from math_extra ->"); print(PI)
+print("add(2,3) ->"); print(add(2,3))
+print("mul(4,5) ->"); print(mul(4,5))
+
+// test recursion (factorial)
+func factorial(n) {
+    if (n <= 1) {
+        return 1
+    } else {
+        let sub = factorial(n - 1)
+        return n * sub
+    }
+}
+print("factorial(5) ->"); print(factorial(5))
+
+// test calling a function as statement (side-effect)
+func greet(name) {
+    print("hello, " + name)
+}
+greet("Mahdi")  // call as statement
+
+// test return with no expression (should return None implicitly)
+func void_func() {
+    print("inside void_func")
+    //return
+}
+let void_val = void_func()
+print("void_func returned:"); print(void_val)
+
+// test stack trace on error (uncomment to see stack trace)
+//safe_div(10, 0)   // runtime error: division by zero, call stack should display
+
+// test import caching and idempotency
+import "utils.dlba"  // second import should not re-run definitions; should be idempotent
+
+// done
+print("== DLBA v0.5 test complete ==")
