@@ -10,7 +10,7 @@ DLBA is a programming language developed using Python, with a syntax inspired by
 
 ## Development
 
-This language was built with assistance from AI (ChatGPT), which is reflected in its name: **DLBA** (Demo Language By AI). The latest version available is **DLBA0.4** (0.4v) .
+This language was built with assistance from AI (ChatGPT), which is reflected in its name: **DLBA** (Demo Language By AI). The latest version available is **DLBA0.6** (0.4v) .
 
 ## Contributions
 

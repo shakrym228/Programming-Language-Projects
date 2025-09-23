@@ -1,0 +1,19 @@
+// utils.dlba - example module for DLBA v0.6
+
+
+func inc(x) {
+return x + 1
+}
+
+
+func add(a, b) {
+return a + b
+}
+
+
+let MODULE_NAME = "utils"
+
+
+func greet_module(name) {
+print("[utils] hello, " + name)
+}

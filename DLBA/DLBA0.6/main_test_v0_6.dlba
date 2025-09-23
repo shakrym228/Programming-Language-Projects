@@ -1,0 +1,78 @@
+// main_test_v0_6.dlba - comprehensive test for DLBA v0.6
+
+import "utils.dlba" as utils
+import "math_extra.dlba" as math
+
+// modules and namespacing
+print(utils.MODULE_NAME)
+print(utils.inc(7))
+print("PI from math_extra ->"+ math.PI)
+print(math.add(2,3))
+print(math.mul(4,5))
+
+
+//lis
+let arr = [1, 2, 3, 4]
+print(arr[0])
+print(arr[3])
+
+
+// dicts
+let m = {"x": 10, y: 20}
+print(m["x"])
+print(m["y"])
+
+
+// nested indexing and expression
+let nested = [ {"k": 100}, {"k": 200} ]
+print(nested[1]["k"])
+
+
+// functions and recursion
+func factorial(n) {
+if (n <= 1) {
+return 1
+} else {
+let sub = factorial(n - 1)
+return n * sub
+}
+}
+print("factorial(5) ->"+ factorial(5))
+
+
+// function as statement and return no-value
+func greet(name) {
+print("hello, " + name)
+}
+greet("Mahdi")
+
+
+func void_func() {
+print("inside void_func")
+return
+}
+let void_val = void_func()
+print("void_func returned:"+ void_val)
+
+
+// statement separators tests (valid variants)
+print 0;
+print 1
+
+
+print 2
+print 3
+
+
+// boolean capitalization: True works, 'true' would be IDENT (undefined)
+let flag = True
+if (flag) {
+print("flag is True")
+}
+
+
+// re-import as idempotent
+import "utils.dlba" as utils
+
+
+print("== DLBA v0.6 full test complete ==")
