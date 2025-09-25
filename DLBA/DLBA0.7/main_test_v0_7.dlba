@@ -1,0 +1,146 @@
+// main_test_v0_7_full.dlba
+// Comprehensive test for DLBA v0.7
+// Covers lexer, parser, interpreter, stdlib and modules
+
+/* Multi-line comment test:
+   This block should be removed by lexer but line numbers preserved.
+*/
+
+// --- imports & modules ---
+import "utils.dlba" as utils
+import "math_extra.dlba"
+from "math_extra.dlba" import PI
+
+// --- basic values ---
+let a = 5
+let b = 2.5
+print("a = " + str(a))
+print("b = " + str(b))
+
+// boolean tests (True/False and lowercase accepted and normalized)
+let t = True
+let f = False
+let t2 = true    // lexer normalizes lowercase true -> TRUE token
+print("t && f -> " + str(t && f))
+print("t || f -> " + str(t || f))
+print("!f -> " + str(!f))
+
+// arithmetic, modulus and precedence
+let sum = a + b
+let product = a * 3
+let div = a / 2
+let modtest = 10 % 3
+print("sum = " + str(sum))
+print("product = " + str(product))
+print("5 / 2 = " + str(div))
+print("10 % 3 = " + str(modtest))
+
+// comparisons
+let x = 10
+let y = 3
+print("x > y -> " + str(x > y))
+print("x <= 10 -> " + str(x <= 10))
+print("x == 10 -> " + str(x == 10))
+print("x != y -> " + str(x != y))
+
+// unary operators
+let neg = -x
+print("neg x = " + str(neg))
+
+// --- if / elif / else ---
+if (x < 5) {
+    print("x < 5")
+} elif (x < 15) {
+    print("5 <= x < 15")
+} else {
+    print("x >= 15")
+}
+
+// --- while loop & reassignment ---
+let i = 0
+let total = 0
+while (i < 5) {
+    total = total + i
+    i = i + 1
+}
+print("total (0..4) = " + str(total))
+
+// --- functions, recursion, return and void returns ---
+func factorial(n) {
+    if (n <= 1) {
+        return 1
+    } else {
+        return n * factorial(n - 1)
+    }
+}
+print("factorial(5) = " + str(factorial(5)))
+
+func greet(name) {
+    print("hello, " + name)
+}
+greet("Mahdi")
+
+func void_func() {
+    print("inside void_func")
+    return
+}
+let v = void_func()
+print("void_func returned -> " + str(v))
+
+// --- module usage & namespacing ---
+print("utils.MODULE_NAME -> " + utils.MODULE_NAME)
+print("utils.inc(7) -> " + str(utils.inc(7)))
+print("math_extra.PI -> " + str(PI))
+print("add(2,3) from math_extra -> " + str(add(2,3)))
+print("mul(4,5) from math_extra -> " + str(mul(4,5)))
+
+// --- lists & dicts & indexing ---
+let arr = [1, 2, 3, 4]
+print("arr[0] -> " + str(arr[0]))
+print("arr[3] -> " + str(arr[3]))
+
+let m = {"x": 10, y: 20}
+print("m['x'] -> " + str(m["x"]))
+print("m['y'] -> " + str(m["y"]))
+
+let nested = [ {"k": 100}, {"k": 200} ]
+print("nested[1]['k'] -> " + str(nested[1]["k"]))
+
+// --- stdlib functions ---
+print("len([1,2,3]) -> " + str(len([1,2,3])))
+print("str(123) -> " + str(str(123)))
+print("int('42') -> " + str(int("42")))
+print("float('3.14') -> " + str(float("3.14")))
+print("range(5) -> " + str(range(5)))
+print("len(range(5)) -> " + str(len(range(5))))
+
+// --- file I/O (read_file / write_file) ---
+let tmpname = "dlba_test_tmp.txt"
+write_file(tmpname, "DLBA test content\nLine2")
+let content = read_file(tmpname)
+print("read_file content -> " + content)
+
+// --- statement separators: semicolon, newline, end-of-block ---
+print 0; print 1
+print 2
+print 3
+
+// --- parser robustness tests (commented out; uncomment to test errors) ---
+// undefined variable -> should show filename:lineno:col
+// print("this will error -> " + str(vv))
+
+// missing separator between statements -> should be parse error
+// print 0 print 1
+
+// bad function call (wrong token) -> parse error example
+// print(1,2)   // if print must accept only one expression; this should produce parse error
+
+// --- other edge cases ---
+// very large expression
+let big = (((1 + 2) * 3) + (4 * (5 + 6))) / 2
+print("big expr -> " + str(big))
+
+// circular import / module-not-found tests are omitted here (place modules in modules/ to test)
+
+// final message
+print("== DLBA v0.7 full test complete ==")

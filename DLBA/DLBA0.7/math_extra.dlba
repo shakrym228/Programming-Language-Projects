@@ -1,0 +1,7 @@
+func add(a, b) {
+    return a + b
+}
+func mul(a, b) {
+    return a * b
+}
+let PI = 3.14159

@@ -1,0 +1,10 @@
+// utils.dlba - example module for DLBA v0.7
+func inc(x) {
+    return x + 1
+}
+
+func add(a, b) {
+    return a + b
+}
+
+let MODULE_NAME = "utils"
