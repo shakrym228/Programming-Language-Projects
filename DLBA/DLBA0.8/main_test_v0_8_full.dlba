@@ -1,0 +1,64 @@
+// main_test_v0_8_full.dlba - DLBA v0.8 comprehensive tests
+import "utils.dlba" as utils
+import "math_extra.dlba"
+from "math_extra.dlba" import PI
+
+let a = 5
+let b = 2.5
+print("a = " + str(a))
+print("b = " + str(b))
+
+// list / append / pop / slicing
+let arr = [1,2,3]
+arr.append(4)
+print("arr -> " + str(arr))
+print("arr[1:3] -> " + str(arr[1:3]))
+print("arr.pop() -> " + str(arr.pop()))
+print("arr -> " + str(arr))
+arr.insert(1, 99)
+print("arr after insert -> " + str(arr))
+
+// dict methods
+let m = {"x": 10, y: 20}
+print("keys -> " + str(m.keys()))
+print("values -> " + str(m.values()))
+print("items -> " + str(m.items()))
+print("get('x') -> " + str(m.get("x")))
+print("get2('x') -> " + str(m["x"]))
+// string format
+let t = "hello {}"
+print(t.format("world"))
+
+// file I/O
+write_file("dlba_tmp.txt", "line1\nline2")
+let content = read_file("dlba_tmp.txt")
+print("read_file -> " + str(content))
+
+// open & FileValue methods
+let f = open("dlba_tmp2.txt", "w")
+f.write("hello-open")
+f.close()
+let f2 = open("dlba_tmp2.txt", "r")
+print("open/read -> " + f2.read())
+f2.close()
+
+// module & namespacing
+print(utils.MODULE_NAME)
+print(utils.inc(7))
+print(PI)
+print(add(2,3))
+print(mul(3,5))
+
+// function and recursion
+func factorial(n) {
+    if (n <= 1) { return 1 }
+    return n * factorial(n - 1)
+}
+print("fact(5) -> " + str(factorial(5)))
+
+// separators
+print 0; print 1;
+print 2
+print 3
+
+print("== DLBA v0.8 test complete ==")
